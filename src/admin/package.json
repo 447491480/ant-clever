@@ -24,7 +24,7 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-persist": "^5.4.0",
-    "redux-promise": "^0.5.3",
+    "redux-promise": "^0.5.3"
   },
   "scripts": {
     "start": "react-app-rewired start",
