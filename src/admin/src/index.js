@@ -5,9 +5,6 @@ import 'core-js/es6/set'
 import 'raf/polyfill'
 
 import 'antd/lib/message';
-
-import "../node_modules/video-react/dist/video-react.css";
-
 import registerServiceWorker from './registerServiceWorker';
 
 import App from './App';

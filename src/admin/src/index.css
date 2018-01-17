@@ -1,6 +1,10 @@
 html, body, :global(#root) {
     height: 100%;
     font-size: 62.5%;
+
+
+    width:100%;
+    min-width:314px;
 }
 
 body {
