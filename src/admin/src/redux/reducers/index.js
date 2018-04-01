@@ -7,9 +7,9 @@ import userReducer from './userReducer';
 
 // 合并到主reducer
 const reducer = {
-    root:rootReducer,
+    root: rootReducer,
     routing: routerReducer,
-    user:userReducer,
+    user: userReducer,
 };
 
 export default reducer;

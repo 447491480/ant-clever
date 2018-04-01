@@ -3,13 +3,12 @@ import {configureStore} from './configureStore';
 import reducers from '../reducers';
 
 // store 持久化
-import {persistStore,persistCombineReducers} from 'redux-persist'
+import {persistStore,persistCombineReducers,persistReducer} from 'redux-persist'
 import storage from 'redux-persist/es/storage'
 
 const persistConfig = {
     key:'root',
     storage,
-    blacklist:['temp'],
 };
 
 const reducer = persistCombineReducers(persistConfig,reducers);
@@ -22,6 +21,9 @@ export const persist = persistStore(store);
 if (module.hot && process.env.NODE_ENV !== 'production') {
     module.hot.accept('../reducers', () => {
         const nextRootReducer = require('../reducers');
-        store.replaceReducer(nextRootReducer);
+        // store.replaceReducer(nextRootReducer);
+        store.replaceReducer(
+           persistReducer(persistConfig, nextRootReducer.default)
+        )
     });
 }

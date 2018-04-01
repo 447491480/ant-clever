@@ -1,394 +1,241 @@
-body{
-    overflow: hidden;
-    line-height: 24px;
-    font: 14px Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif;
+/*模态框居中*/
+.modal {
+    top:20%;
 }
-a{
+
+.input {
+    margin-bottom: 2rem;
+    min-height: 4rem;
+    padding-left: 1rem;
+}
+
+.avatarBtnWrapper {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.AvatarEditorWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatarBtn {
+    margin-left: 1rem;
+    background-color: #ccc;
+    color:#fff;
+    font-size: 1rem;
+}
+
+.mottoWrapper,.usernameWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mottoWrapper{
+    margin-left: 4%;
+    margin-right:4%;
+}
+.username {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-width: 200px;
+    min-width: 100px;
+    padding: 0 10px;
+    opacity: .6;
+    background-color: #fff;
+    color: #666;
+}
+
+
+.motto {
+    display: inline-block;
+    color: #666;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-width: 500px!important;
+    min-width: 100px;
+    padding: 0 10px;
+    opacity: .6;
+    background-color: #fff;
+
+}
+
+.banner{
+    margin-top: 70px;
+    position: relative;
+    text-align: center;
+    height:38rem;
+}
+.bannerImage{
+    position: absolute;
+    top: 0;
+    left:0;
+    background: #eeeeee;
+    height: 38rem;
+
+}
+.bannerImage img{
+    height:38rem;
+}
+.bannerContent{
+    margin-top: 8.8rem;
+}
+.bannerImages{
+    position: absolute;
+    left: 53%;
+    top: 10%;
+    transform: translate(-53%, -10%);
+}
+.bannerHead{
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.bannerSubHead{
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+.form{
+    width: 100%;
+    padding-left: 12%;
+    padding-right: 12%;
+    margin-top: 4rem;
+}
+.formLeft{
+    float: left;
+}
+.formRight{
+    float: right;
+}
+.formHead{
+    font-size: 1.6rem;
     color: #282b2f;
+    margin-bottom: 2rem;
+    font-weight: bold;
 }
-p{
-    padding-left: 20px;
-    padding-right:20px;
+.spanOne{
+    font-size: 1.6rem;
+    color: #282b2f;
+    margin-right: 2rem;
 }
-.sidePortion::-webkit-scrollbar {display:none}
-.side::-webkit-scrollbar {display:none}
-.sideSelect::-webkit-scrollbar {display:none}
-.ant-menu-dark::-webkit-scrollbar {display:none}
-::-webkit-scrollbar {display:none}
-/*头部样式*/
-.header{
-    border-bottom: 1px solid #f6f6f6;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    height:50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 220px;
+.formInput{
+    margin-bottom: 2rem;
 }
-.headerLeft{
-    display: flex;
+.formInput input{
+    height: 4.4rem;
 }
-.headerLeft div{
-    padding: 0 20px;
+.formCountersign{
+    width: 100%;
+    padding-left: 12%;
+    padding-right: 12%;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.buttonWrapper {
+    padding-bottom: 4rem;
+}
+.deleteAccount {
+
+    background-color:#ccc;
+    color:#fff;
     cursor: pointer;
-    height: 50px;
-    line-height: 50px;
-}
-.headerLeft div:hover{
-    background: #f5f5f5;
-}
-.headerRight{
-    display: flex;
-}
-.headerRight div{
-    padding: 0 20px;
-    cursor: pointer;
-    height: 50px;
-    line-height: 50px;
-}
-.headerRight div:hover{
-    background: #f5f5f5;
-}
-.morePc{
-    display: block;
-}
-.moreMobile{
-    display: none;
-}
-
-
-
-/*侧边栏完整*/
-.side{
-    position: fixed;
-    width: 220px;
-    z-index: 1001;
-    overflow-x: hidden;
-    background: #20222a;
-    color: #FFFFFF;
-    box-shadow: 1px 0 2px 0 rgba(0,0,0,.05);
-    top: 0px;
-    bottom: 0;
-}
-.sideScroll{
-    position: relative;
-    height:70px;
-    overflow-x: hidden;
-    width: 240px;
-}
-.sideHead{
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1002;
-    width: 220px;
-    height: 69px;
-    padding: 0 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-weight: 300;
-    background-repeat: no-repeat;
-    background-position: center center;
-    line-height:70px;
-    font-size: 16px;
-    text-align: center;
-    background: #20222a;
-}
-/*页面标签*/
-.headerLabel{
-    box-sizing: border-box;
-    background: #FFFFFF;
-    margin-left: 240px;
-    position: absolute;
-    left: 0px;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    z-index: 998;
-    width: auto;
-    overflow: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
+    width: 15%;
     font-size: 2rem;
+    text-shadow: none;
+    display: inline-block;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    outline: none;
+    height: 4rem;
+    margin-left: 50%;
+}
+.saveChanges {
+    width: 15%;
+    background-color:#ff3f3b;
+    color:#fff;
+    cursor: pointer;
+    font-size: 2rem;
+    text-shadow: none;
+    display: inline-block;
+    border-radius: 1rem;
+    outline: none;
+    height: 4rem;
+    margin-right: 10%;
 }
 
-
-@media screen and (min-width:576px) and (max-width: 992px){
-    .side{display: none}
-    .header{
-        border-bottom: 1px solid #f6f6f6;
-        box-sizing: border-box;
-        background: #FFFFFF;
-        height:50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 0px;
-    }
-    .headerLabel{
-        box-sizing: border-box;
-        background: #FFFFFF;
-        margin-left: 0px;
-        position: absolute;
-        left: 0px;
-        right: 0;
-        top: 50px;
-        bottom: 0;
-        z-index: 998;
-        width: auto;
-        overflow: hidden;
-        overflow-y: auto;
-        box-sizing: border-box;
-        font-size: 2rem;
-    }
-    .drawImage{
-        display: none;
-    }
-    .morePc{
-        display: none;
-    }
-    .moreMobile{
-        display: block;
-    }
+.userAvatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
 }
 
+@media screen and (min-width: 577px) and (max-width: 960px){
+    .saveChanges,.deleteAccount {
+        width: 16%;
+        font-size: 1.6rem;
+    }
+}
 @media screen and (min-width:320px) and (max-width: 576px){
-    .side{display: none}
-    .header{
-        border-bottom: 1px solid #f6f6f6;
-        box-sizing: border-box;
-        background: #FFFFFF;
-        height:50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 0px;
+    .form{
+        width: 100%;
+        padding-left: 8%;
+        padding-right: 8%;
+        margin-top: 4rem;
     }
-    .headerLabel{
-        box-sizing: border-box;
-        background: #FFFFFF;
-        margin-left: 0px;
-        position: absolute;
-        left: 0px;
-        right: 0;
-        top: 50px;
-        bottom: 0;
-        z-index: 998;
-        width: auto;
-        overflow: hidden;
-        overflow-y: auto;
-        box-sizing: border-box;
-        font-size: 2rem;
+    .formCountersign{
+        width: 100%;
+        padding-left: 8%;
+        padding-right: 8%;
+        margin-top: 4rem;
+        padding-bottom: 4rem;
     }
-    .drawImage{
-        display: none;
-    }
-    .morePc{
-        display: none;
-    }
-    .moreMobile{
-        display: block;
-    }
-}
 
+    .saveChanges ,.deleteAccount{
+        margin-bottom: 1rem;
+        width: 80%;
+        font-size: 1.6rem;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+}
 @media screen and (max-width:320px){
-    .side{display: none}
-    .header{
-        border-bottom: 1px solid #f6f6f6;
-        box-sizing: border-box;
-        background: #FFFFFF;
-        height:50px;
+    .form{
+        width: 100%;
+        padding-left: 8%;
+        padding-right: 8%;
+        margin-top: 4rem;
+    }
+    .formCountersign{
+        width: 100%;
+        padding-left: 8%;
+        padding-right: 8%;
+        margin-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .buttonWrapper {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 0px;
+        justify-content: center;
     }
-    .headerLabel{
-        box-sizing: border-box;
-        background: #FFFFFF;
-        margin-left: 0px;
-        position: absolute;
-        left: 0px;
-        right: 0;
-        top: 50px;
-        bottom: 0;
-        z-index: 998;
-        width: auto;
-        overflow: hidden;
-        overflow-y: auto;
-        box-sizing: border-box;
-        font-size: 2rem;
-    }
-    .drawImage{
-        display: none;
-    }
-    .morePc{
-        display: none;
-    }
-    .moreMobile{
-        display: block;
+    .saveChanges ,.deleteAccount{
+        margin-bottom: 1rem;
+        padding: 0 6rem;
+        font-size: 1.4rem;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
-
-
-
-/*弹框*/
-/*移动端点击更多左侧边栏显示，出现遮罩层*/
-.bodyShade{
-    position: fixed;
-    display: block;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,.3);
-    z-index: 1000;
-}
-.sideSelect{
-        position: fixed;
-        width: 220px;
-        z-index: 1001;
-        overflow-x: hidden;
-        background: #20222a;
-        color: #FFFFFF;
-        box-shadow: 1px 0 2px 0 rgba(0,0,0,.05);
-        top: 0px;
-        bottom: 0;
-        display: block;
-}
-.headerSelect{
-    border-bottom: 1px solid #f6f6f6;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    height:50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 220px;
-}
-.headerLabelSelect{
-    box-sizing: border-box;
-    background: #FFFFFF;
-    margin-left: 240px;
-    position: absolute;
-    left: 0px;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    z-index: 998;
-    width: auto;
-    overflow: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
-    font-size: 2rem;
-}
-
-/*pc端点击更多,*/
-.sidePortion{
-    position: fixed;
-    width: 60px;
-    z-index: 1001;
-    overflow-x: hidden;
-    background: #20222a;
-    color: #FFFFFF;
-    box-shadow: 1px 0 2px 0 rgba(0,0,0,.05);
-    top: 0px;
-    bottom: 0;
-    display: block;
-}
-.sideScrollPortion{
-    position: relative;
-    overflow-x: hidden;
-    width: 60px;
-    height: 80px;
-}
-.sideHeadPortion{
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1002;
-    width: 60px;
-    padding: 15px 0px;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-weight: 300;
-    background-repeat: no-repeat;
-    background-position: center center;
-    line-height:50px;
-    font-size: 16px;
-    text-align: center;
-    background: #20222a;
-}
-.sidePortionStyle{
-    width: 60px;
-    text-align: center;
-    height: 64px;
-    line-height: 64px;
-    cursor: pointer;
-}
-.sidePortionStyle:hover,.sidePortionStyle:focus{
-    background: rgba(0,0,0,.3);
-}
-.sidePortionStyleActive{
-    background: rgba(0,0,0,.3);
-}
-
-
-.headerSelectPc{
-    border-bottom: 1px solid #f6f6f6;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    height:50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 60px;
-}
-.headerLabelSelectPc{
-    box-sizing: border-box;
-    background: #FFFFFF;
-    margin-left: 60px;
-    position: absolute;
-    left: 0px;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    z-index: 998;
-    width: auto;
-    overflow: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
-    font-size: 2rem;
-}
-
-:global(.ant-menu-submenu-arrow){
-    display: block;
-}
-
-
-/*:global(.ant-menu){*/
-   /**/
-/*}*/
-/*:global(.ant-menu-dark){*/
-    /*height: 926px;*/
-    /*overflow: hidden;*/
-    /*overflow-y: scroll;*/
-/*}*/
-.sideMenu{
-    position: fixed;
-    z-index: 1001;
-    overflow-x: hidden;
-    background: #20222a;
-    color: #FFFFFF;
-    box-shadow: 1px 0 2px 0 rgba(0,0,0,.05);
-    top: 0px;
-    bottom: 0;
-}
-.mrThree{
-    margin-right:3rem;
-}
-.littleLogoImg{
-    margin-left: -14px;
-    margin-right: 24px;
+.fontFourteen{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

@@ -28,10 +28,14 @@ class App extends BaseComponent {
                 },
                 debug: () => {
                 },
-                error: () => {
-                },
+                // error: () => {
+                // },
             };
         }
+    }
+
+    componentDidCatch(error, info) {
+        console.error(error,info);
     }
 
     store = store;

@@ -1,36 +1,18 @@
-body{
-    /*min-width: 314px;*/
-}
-.loginAll{
-    position: relative;
-    left: 0;
-    top: 0;
-    padding: 110px 0;
+.container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
     min-height: 100%;
-    box-sizing: border-box;
+    background: #f0f2f5;
 }
-.FormAll{
-    width: 375px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-.FormHead{
-    text-align: center;
-    padding: 20px;
-}
-.FormInput{
-    height: 4rem;
-}
-.RememberPassword{
-    text-align: left;
-}
-@media screen and (max-width: 768px){
-    .loginAll{
-        padding-top: 80px;
-    }
-    .FormAll{
-        width: 300px;
-        margin: 0 auto;
-        box-sizing: border-box;
+
+@media (min-width: 768px) {
+    .container {
+        background-image: url("../../resources/image/login/background.svg");
+        background-repeat: no-repeat;
+        background-position: center 110px;
+        background-size: 100%;
     }
 }
+

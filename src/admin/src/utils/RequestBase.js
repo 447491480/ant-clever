@@ -1,11 +1,8 @@
 import axios from 'axios'
-import AppConfig from '../configs/App';
 import CommonUtil from './CommonUtil';
-import {push,replace} from 'react-router-redux';
+import {push, replace} from 'react-router-redux';
 import {store} from '../redux/store';
-import  * as userAction from '../redux/actions/userAction'
-
-import {history} from "../redux/store/configureStore";
+import * as userAction from '../redux/actions/userAction';
 
 // 网络请求基类
 export default class RequestBase {
@@ -14,6 +11,8 @@ export default class RequestBase {
         try {
 
             console.log(url, args);
+
+            // args.__ = Math.random();
 
             if (showLoading) {
                 CommonUtil.showLoading();
@@ -36,7 +35,7 @@ export default class RequestBase {
                 CommonUtil.hideLoading();
             }
 
-            console.log(res,res.data);
+            console.log(res, res.data);
 
             if (res.status !== 200) {
                 return {status: -3, msg: '网络请求异常'};
@@ -45,10 +44,10 @@ export default class RequestBase {
             if (res.data.status === -999) {
                 let location = CommonUtil.parseObj(window.location);
 
-                setTimeout(()=>{
-                    store.dispatch(replace('/login?_from='+encodeURIComponent(`${location.hash.substring(1)}${location.search}`)));
-                    store.dispatch({type:userAction.LOGOUT});
-                },1500);
+                setTimeout(() => {
+                    store.dispatch(replace('/login?_from=' + encodeURIComponent(`${process.env.NODE_ENV === 'production' ? location.pathname : location.hash.substring(1)}${location.search}`)));
+                    store.dispatch({type: userAction.LOGOUT});
+                }, 1500);
                 return {status: -3, msg: '登录失效，请重新登录'};
             }
 
