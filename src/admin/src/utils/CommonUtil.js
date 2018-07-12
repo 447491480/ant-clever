@@ -1,10 +1,13 @@
 import {message} from 'antd'
-import moment from 'moment'
+import moment from 'moment';
+
+import padStart from 'lodash/padStart';
 
 message.config({
-    top: '45%',
+    top: 150,
     duration: 2,
 });
+
 
 export default class CommonUtil {
     static toast(msg) {
@@ -94,7 +97,4 @@ export default class CommonUtil {
         return null;
     }
 
-    static windowScrollTop(top=0){
-        window.scrollTo(0,top);
-    }
 }

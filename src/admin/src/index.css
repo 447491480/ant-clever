@@ -1,17 +1,55 @@
+@charset "UTF-8";
 html, body, :global(#root) {
+    -webkit-tap-highlight-color: transparent;
     height: 100%;
     font-size: 62.5%;
+    padding: 0;
+    margin: 0;
+}
 
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
 
-    width:100%;
-    min-width:314px;
+@-webkit-keyframes flash {
+    from,
+    50%,
+    to {
+        opacity: 0.7;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    from,
+    50%,
+    to {
+        opacity: 0.7;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+.flash {
+    -webkit-animation-name: flash;
+    animation-name: flash;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-
+    font-size: 1.2rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,9 +60,18 @@ body {
     margin: 100px 0 !important;
 }
 
-.fontWhite {
-    color:#FFFFFF;
+
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
 }
-Link{
-    font-size: 1.4rem;
+
+
+ul, li {
+    list-style-type: none;
+}
+
+img {
+    border: 0;
 }

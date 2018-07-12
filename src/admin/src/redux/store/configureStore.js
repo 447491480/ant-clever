@@ -6,17 +6,16 @@ import {compose, createStore, applyMiddleware} from 'redux';
 import {routerMiddleware} from 'react-router-redux';
 // 引入thunk 中间件，处理异步操作
 import promise from 'redux-promise';
-import createHistory from 'history/createHashHistory';
-
+import createHashHistory from 'history/createHashHistory';
 // 创建 route 的中间件
-export const history = createHistory();
+export const history =  createHashHistory();
 const routeMiddleware = routerMiddleware(history);
 
 const middleware = [routeMiddleware, promise];
 
 // 辅助使用chrome浏览器进行redux调试
 const composeEnhancers =
-    process.env.NODE_ENV !== 'production' &&
+    // process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
         ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
