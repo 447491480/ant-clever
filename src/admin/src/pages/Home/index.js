@@ -20,6 +20,8 @@ const menu = (
         </Menu.Item>
     </Menu>
 );
+
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 class Home extends BaseComponent {
