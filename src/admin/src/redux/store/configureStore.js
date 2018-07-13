@@ -6,9 +6,9 @@ import {compose, createStore, applyMiddleware} from 'redux';
 import {routerMiddleware} from 'react-router-redux';
 // 引入thunk 中间件，处理异步操作
 import promise from 'redux-promise';
-import createHashHistory from 'history/createHashHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 // 创建 route 的中间件
-export const history =  createHashHistory();
+export const history =  createBrowserHistory() ;
 const routeMiddleware = routerMiddleware(history);
 
 const middleware = [routeMiddleware, promise];

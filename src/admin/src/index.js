@@ -5,6 +5,8 @@ import 'raf/polyfill';
 
 import 'es6-promise/auto';
 
+import '../node_modules/nprogress/nprogress.css'
+
 import registerServiceWorker from './registerServiceWorker';
 
 import React from 'react';

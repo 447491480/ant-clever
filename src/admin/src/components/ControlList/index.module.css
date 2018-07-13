@@ -1,0 +1,26 @@
+.dropText {
+    margin-left: .3rem;
+    display: block;
+    font-size: .24rem;
+    line-height: .6rem
+}
+.dropText:hover{
+    opacity: .8;
+    cursor: pointer;
+}
+.headerControl{
+    display: flex;
+}
+.message{
+    font-size: .28rem;
+    color: #777
+}
+.notice{
+    position: relative;
+    left: 0;
+    top:-0.05rem;
+}
+.header .ant-menu-item .ant-menu-horizontal > .ant-menu-item{
+    font-size: .16rem;
+}
+

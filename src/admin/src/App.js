@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseComponent from './components/BaseComponent'
+import BaseComponent from './components/Base/BaseComponent'
 
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/es/integration/react'
@@ -28,14 +28,10 @@ class App extends BaseComponent {
                 },
                 debug: () => {
                 },
-                // error: () => {
-                // },
+                error: () => {
+                },
             };
         }
-    }
-
-    componentDidCatch(error, info) {
-        console.error(error,info);
     }
 
     store = store;

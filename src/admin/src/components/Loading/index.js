@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseComponent from '../BaseComponent';
+import BaseComponent from '../Base/BaseComponent';
 
 import {Spin} from 'antd';
 

@@ -1,0 +1,52 @@
+.dropText {
+    margin-left: .3rem;
+    display: block;
+    font-size: .20rem;
+    line-height: .6rem
+}
+.dropText:hover{
+    opacity: .8;
+    cursor: pointer;
+}
+.headerControl{
+    display: flex;
+    float: right;
+    padding-right: 20px;
+    width: 230px;
+}
+.logoInfor{
+    font-size: .2rem;
+    font-weight: bold;
+    width: 100%;
+    height:.64rem;
+}
+.logoInfor img{
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+.message{
+    font-size: .20rem;
+    color: #777
+}
+.dropText .anticon{
+    display: block;
+}
+
+.notice{
+    position: relative;
+    left: 0;
+    top:0.2rem;
+
+}
+.header .ant-menu-item .ant-menu-horizontal > .ant-menu-item{
+    font-size: .16rem;
+}
+.ant-avatar
+{
+    height: .2rem !important;
+    width:.2rem !important;
+}
+

@@ -3,15 +3,18 @@ import {configureStore} from './configureStore';
 import reducers from '../reducers';
 
 // store 持久化
-import {persistStore,persistCombineReducers,persistReducer} from 'redux-persist'
-import storage from 'redux-persist/es/storage'
+import { persistReducer,persistStore,persistCombineReducers } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
+import immutableTransform from 'redux-persist-transform-immutable'
 
 const persistConfig = {
-    key:'root',
+    key: 'root',
     storage,
+    whitelist: ['root'],
+    transforms:[immutableTransform()]
 };
 
-const reducer = persistCombineReducers(persistConfig,reducers);
+const reducer = persistCombineReducers(persistConfig, reducers);
 
 // 给增强后的store传入reducer
 export const store = configureStore(reducer);
@@ -22,8 +25,9 @@ if (module.hot && process.env.NODE_ENV !== 'production') {
     module.hot.accept('../reducers', () => {
         const nextRootReducer = require('../reducers');
         // store.replaceReducer(nextRootReducer);
+
         store.replaceReducer(
-           persistReducer(persistConfig, nextRootReducer.default)
+            persistReducer(persistConfig, nextRootReducer.default)
         )
     });
 }

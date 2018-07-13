@@ -8,12 +8,9 @@ message.config({
     duration: 2,
 });
 
-
 export default class CommonUtil {
     static toast(msg) {
-        setTimeout(()=>{
-            message.info(msg, 3, null);
-        },500)
+        message.info(msg, 3, null);
     }
 
     static showLoading(msg = '正在加载，请稍候...') {
@@ -28,44 +25,39 @@ export default class CommonUtil {
         return moment(t).format(fmt);
     }
 
-    static parseObj(obj) {
-        return JSON.parse(JSON.stringify(obj));
-    }
-
-    static convertBase(value, from_base, to_base) {
-        value = value.toString();
-        let range = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/'.split('');
-        let from_range = range.slice(0, from_base);
-        let to_range = range.slice(0, to_base);
-
-        let dec_value = value.split('').reverse().reduce(function (carry, digit, index) {
-            if (from_range.indexOf(digit) === -1) throw new Error('Invalid digit `'+digit+'` for base '+from_base+'.');
-            return carry += from_range.indexOf(digit) * (Math.pow(from_base, index));
-        }, 0);
-
-        let new_value = '';
-        while (dec_value > 0) {
-            new_value = to_range[dec_value % to_base] + new_value;
-            dec_value = (dec_value - (dec_value % to_base)) / to_base;
+    static sliceArray(array, size, emptyAppend = false) {
+        if (!Array.isArray(size)) {
+            size = [size];
         }
-        return new_value || '0';
-    }
-
-    static sliceArray(array, size) {
         let result = [];
-        for (let x = 0; x < Math.ceil(array.length / size); x++) {
-            let start = x * size;
-            let end = start + size;
-            result.push(array.slice(start, end));
+
+        let start = 0;
+        let end = 0;
+
+        while (end < array.length) {
+            for (let s = 0; s < size.length; s++) {
+                end = size[s] + start;
+                if (end <= array.length) {
+                    result.push(array.slice(start, end));
+                    start = end;
+                } else {
+                    let slices = array.slice(start, array.length);
+                    if (emptyAppend) {
+                        for (let i = 0; i < end - array.length; i++) {
+                            slices.push({emptyAppend: true})
+                        }
+                    }
+
+                    result.push(slices);
+
+                    break;
+                }
+            }
         }
         return result;
     }
 
-    static checkEmail(string){
-        return /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(string)
-    }
-
-    static arrayToTree = (array, id = 'id', pid = 'pid', children = 'children') =>{
+    static arrayToTree = (array, id = 'id', pid = 'pid', children = 'children') => {
         id = id || 'id';
         pid = pid || 'pid';
         children = children || 'children';
@@ -89,7 +81,7 @@ export default class CommonUtil {
         return result
     };
 
-    static getQueryString(name,search) {
+    static getQueryString(name, search) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 
         let r = decodeURIComponent(search).substr(1).match(reg);
@@ -97,4 +89,31 @@ export default class CommonUtil {
         return null;
     }
 
+    static windowScrollTop(top = 0) {
+        window.scrollTo(0, top);
+    }
+
+
+    static getExtType(file, hasDot = false) {
+        let xp = file.lastIndexOf('.');
+        return hasDot ? file.substring(xp, file.length).toLowerCase() : file.substring(xp + 1, file.length).toLowerCase();
+    }
+
+    static getFileName(file) {
+        let xp = file.lastIndexOf('/');
+        return file.substring(xp + 1, file.length).toLowerCase();
+    }
+
+    static fileType(filename) {
+        let ext = this.getExtType(filename, true);
+        if (!!~'.jpg,.jpeg,.png'.indexOf(ext)) {
+            return 1;
+        } else if (!!~'.mp3,.aac,.wav'.indexOf(ext)) {
+            return 3;
+        } else if (!!~'.avi,.wmv,.mpeg,.mp4,.mov,.mkv,.flv,.f4v,.m4v,.rmvb,.rm,.3gp,.dat,.ts,.mts,.vob'.indexOf(ext)) {
+            return 2;
+        } else if (!!~'.svg'.indexOf(ext)) {
+            return 4;
+        }
+    }
 }

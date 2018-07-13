@@ -1,31 +1,10 @@
-import BaseComponent from '../components/BaseComponent';
+import BaseComponent from '../components/Base/BaseComponent';
 import React from 'react'
-import {
-    Route,
-    Switch,
-    HashRouter,
-    BrowserRouter
-} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
+import {renderRoutes} from 'react-router-config'
 
-import routes from './router';
-
-const RouteWithSubRoutes = (route) => (
-    <Route path={route.path} render={props => (
-        <route.component {...props} routes={route.routes}/>
-    )}/>
-);
-
-export class MultiPageRouter extends BaseComponent {
-    render = () => (
-        <HashRouter>
-            <Switch>
-                {this.props.routes.map((route, i) => (
-                    <RouteWithSubRoutes key={i} {...route}/>
-                ))}
-            </Switch>
-        </HashRouter>
-    )
-}
+import {genRouter} from './router';
+const routes = genRouter();
 
 class AppRouteMap extends BaseComponent {
     constructor(props) {
@@ -34,7 +13,9 @@ class AppRouteMap extends BaseComponent {
 
     render() {
         return (
-            <MultiPageRouter routes={routes}/>
+            <BrowserRouter>
+                {renderRoutes(routes)}
+            </BrowserRouter>
         )
     }
 }
